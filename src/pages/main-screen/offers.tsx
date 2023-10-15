@@ -1,4 +1,4 @@
-function MainScreen(): JSX.Element {
+function Offers(): JSX.Element {
   return (
     <body>
       <div style={{ display: 'none' }}>
@@ -534,4 +534,4 @@ function MainScreen(): JSX.Element {
   );
 }
 
-export default MainScreen;
+export default Offers;
