@@ -1,6 +1,11 @@
+import { Helmet } from 'react-helmet-async';
+
 function FavoriteScreen(): JSX.Element {
   return (
-    <body>
+    <div>
+      <Helmet>
+        <title>6 cities. Favorite page</title>
+      </Helmet>
       <div className="page">
         <header className="header">
           <div className="container">
@@ -233,7 +238,7 @@ function FavoriteScreen(): JSX.Element {
           </a>
         </footer>
       </div>
-    </body>
+    </div>
   );
 }
 
