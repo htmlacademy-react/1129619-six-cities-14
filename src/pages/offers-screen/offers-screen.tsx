@@ -304,7 +304,7 @@ function OffersScreen(): JSX.Element {
                     <button
                       className="reviews__submit form__submit button"
                       type="submit"
-                      disabled
+                      disabled={false}
                     >
                       Submit
                     </button>
