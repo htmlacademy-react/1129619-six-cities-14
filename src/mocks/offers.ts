@@ -1,6 +1,6 @@
-import { Offers } from '../types/offers';
+import { Offer } from '../types/offers';
 
-const offers: Offers[] = [
+const offers: Offer[] = [
   {
     city: {
       name: 'Dusseldorf',
@@ -29,7 +29,7 @@ const offers: Offers[] = [
     ],
     title: 'Waterfront with extraordinary view',
     isFavorite: false,
-    isPremium: false,
+    isPremium: true,
     rating: 4.8,
     type: 'room',
     bedrooms: 1,
@@ -127,7 +127,7 @@ const offers: Offers[] = [
       'https://14.react.pages.academy/static/offer/12.jpg',
     ],
     title: 'Loft Studio in the Central Area',
-    isFavorite: false,
+    isFavorite: true,
     isPremium: false,
     rating: 2.9,
     type: 'room',
