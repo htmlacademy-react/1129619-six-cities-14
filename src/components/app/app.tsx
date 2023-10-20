@@ -7,10 +7,10 @@ import FavoriteScreen from '../../pages/favorite-screen/favorite-screen';
 import OffersScreen from '../../pages/offers-screen/offers-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
-import { Offers } from '../../types/offers';
+import { Offer } from '../../types/offers';
 
 type AppScreenProps = {
-  offers: Offers[];
+  offers: Offer[];
 };
 
 function App({ offers }: AppScreenProps): JSX.Element {
@@ -26,8 +26,8 @@ function App({ offers }: AppScreenProps): JSX.Element {
           <Route
             path={AppRoute.Favorites}
             element={
-              <PrivateRoute authorizationStatus={AuthorizationStatus.NoAuth}>
-                <FavoriteScreen />
+              <PrivateRoute authorizationStatus={AuthorizationStatus.Auth}>
+                <FavoriteScreen offers={offers} />
               </PrivateRoute>
             }
           />

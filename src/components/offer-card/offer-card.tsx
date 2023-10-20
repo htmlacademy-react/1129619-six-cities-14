@@ -1,15 +1,18 @@
-import { Offers } from '../../types/offers';
+import { Offer } from '../../types/offers';
 
-type OfferForOfferCard = {
-  offer: Offers;
+type OfferCardProps = {
+  offer: Offer;
 };
 
-function OfferCard({ offer }: OfferForOfferCard): JSX.Element {
+function OfferCard({ offer }: OfferCardProps): JSX.Element {
   return (
     <article className="cities__card place-card">
-      <div className="place-card__mark">
-        <span>Premium</span>
-      </div>
+      {offer.isPremium && (
+        <div className="place-card__mark">
+          <span>Premium</span>
+        </div>
+      )}
+
       <div className="cities__image-wrapper place-card__image-wrapper">
         <a href="#">
           <img
@@ -36,7 +39,7 @@ function OfferCard({ offer }: OfferForOfferCard): JSX.Element {
         </div>
         <div className="place-card__rating rating">
           <div className="place-card__stars rating__stars">
-            {/* <span style="width: 80%"></span> */}
+            <span style={{ width: '80%' }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
         </div>

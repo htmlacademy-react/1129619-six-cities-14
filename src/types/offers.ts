@@ -16,7 +16,7 @@ type OfferHost = {
   avatarUrl: string;
 };
 
-type Offers = {
+export type Offer = {
   city: OfferCity;
   previewImage: string;
   images: string[];
@@ -34,5 +34,3 @@ type Offers = {
   location: OfferLocation;
   id: number;
 };
-
-export { type Offers };

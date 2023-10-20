@@ -1,13 +1,17 @@
 import OfferCard from '../../components/offer-card/offer-card';
 import Login from '../../components/login/login';
 import { Helmet } from 'react-helmet-async';
-import { Offers } from '../../types/offers';
+import { Offer } from '../../types/offers';
+import { useState } from 'react';
 
 type MainScreenProps = {
-  offers: Offers[];
+  offers: Offer[];
 };
 
 function MainScreen({ offers }: MainScreenProps): JSX.Element {
+  const [favorites, setFavorits] = useState(
+    offers.map((offer) => offer.isFavorite),
+  );
   return (
     <div className="page page--gray page--main">
       <Helmet>
