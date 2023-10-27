@@ -1,7 +1,19 @@
 import { Helmet } from 'react-helmet-async';
 import Logo from '../../components/logo/logo';
+import { Offer } from '../../types/offers';
+import { Navigate, useParams } from 'react-router-dom';
+import { AppRoute } from '../../const';
 
-function OffersScreen(): JSX.Element {
+type OffersScreenProps = {
+  offers: Offer[];
+};
+
+function OffersScreen({ offers }: OffersScreenProps): JSX.Element {
+  const { offerId } = useParams();
+  const offer = offers.find((item) => console.log(item.id));
+  console.log(offerId);
+  // используем offer для отрисовки нужного офера на странице
+
   return (
     <div className="page">
       <Helmet>

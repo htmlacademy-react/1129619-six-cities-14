@@ -7,13 +7,9 @@ import FavoriteScreen from '../../pages/favorite-screen/favorite-screen';
 import OffersScreen from '../../pages/offers-screen/offers-screen';
 import NotFoundScreen from '../../pages/not-found-screen/not-found-screen';
 import PrivateRoute from '../private-route/private-route';
-import { Offer } from '../../types/offers';
+import offers from '../../mocks/offers';
 
-type AppScreenProps = {
-  offers: Offer[];
-};
-
-function App({ offers }: AppScreenProps): JSX.Element {
+function App(): JSX.Element {
   return (
     <HelmetProvider>
       <BrowserRouter>
@@ -31,7 +27,10 @@ function App({ offers }: AppScreenProps): JSX.Element {
               </PrivateRoute>
             }
           />
-          <Route path={AppRoute.Offer} element={<OffersScreen />} />
+          <Route
+            path={AppRoute.Offer}
+            element={<OffersScreen offers={offers} />}
+          />
           <Route path="*" element={<NotFoundScreen />} />
         </Routes>
       </BrowserRouter>

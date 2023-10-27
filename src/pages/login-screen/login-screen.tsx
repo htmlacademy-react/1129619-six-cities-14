@@ -28,7 +28,7 @@ function LoginScreen(): JSX.Element {
           </symbol>
         </svg>
       </div>
-      <div className="page page--gray page--login">
+      <div Name="page page--gray page--login">
         <header className="header">
           <div className="container">
             <div className="header__wrapper">

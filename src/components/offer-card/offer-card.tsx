@@ -1,12 +1,26 @@
+import { Link } from 'react-router-dom';
 import { Offer } from '../../types/offers';
+import { AppRoute } from '../../const';
 
 type OfferCardProps = {
   offer: Offer;
+  onCardHover?: (offerId: Offer['id'] | null) => void;
 };
 
-function OfferCard({ offer }: OfferCardProps): JSX.Element {
+function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
+  function handleMouseEnter() {
+    onCardHover?.(offer.id);
+  }
+  function handleMouseLeave() {
+    onCardHover?.(null);
+  }
+
   return (
-    <article className="cities__card place-card">
+    <article
+      className="cities__card place-card"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {offer.isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -14,15 +28,16 @@ function OfferCard({ offer }: OfferCardProps): JSX.Element {
       )}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        {/* ниже должен быть id /id */}
+        <Link to={`${AppRoute.Offer}/`}>
           <img
             className="place-card__image"
             src={offer.previewImage}
             width="260"
             height="200"
-            alt="Place image"
+            alt={offer.title}
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">

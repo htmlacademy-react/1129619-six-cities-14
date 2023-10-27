@@ -4,13 +4,14 @@ type FavoriteProps = {
   offers: Offer[];
 };
 
-export function Favorite({ offers }: FavoriteProps): Element {
+export function Favorite({ offers }: FavoriteProps): JSX.Element {
   return (
     <ul className="favorites__list">
+      {/* отфильтровать данные */}
       {offers.map((offer) => {
         if (offer.isFavorite) {
           return (
-            <li className="favorites__locations-items">
+            <li className="favorites__locations-items" key={offer.id}>
               <div className="favorites__locations locations locations--current">
                 <div className="locations__item">
                   <a className="locations__item-link" href="#">
