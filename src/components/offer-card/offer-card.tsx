@@ -15,6 +15,8 @@ function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
     onCardHover?.(null);
   }
 
+  // console.log(idCard);
+
   return (
     <article
       className="cities__card place-card"
@@ -29,7 +31,7 @@ function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
 
       <div className="cities__image-wrapper place-card__image-wrapper">
         {/* ниже должен быть id /id */}
-        <Link to={`${AppRoute.Offer}/`}>
+        <Link to={`${AppRoute.Offer}`}>
           <img
             className="place-card__image"
             src={offer.previewImage}

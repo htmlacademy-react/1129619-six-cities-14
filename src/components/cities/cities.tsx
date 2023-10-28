@@ -9,11 +9,11 @@ type CitiesProps = {
 
 export function Cities({ offers }: CitiesProps): JSX.Element {
   const [hoverOfferId, setHoverOfferId] = useState<Offer['id'] | null>(null);
+  console.log(offers);
 
   function handleCardHover(offerId: Offer['id'] | null) {
     setHoverOfferId(offerId);
   }
-  console.log(hoverOfferId);
 
   return (
     <div className="cities">
@@ -33,7 +33,7 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
               </svg>
             </span>
             <ul className="places__options places__options--custom places__options--opened">
-              <li
+              {/* <li
                 className="places__option places__option--active"
                 tabIndex={0}
               >
@@ -47,7 +47,7 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
               </li>
               <li className="places__option" tabIndex={0}>
                 Top rated first
-              </li>
+              </li> */}
             </ul>
           </form>
           <div className="cities__places-list places__list tabs__content">
