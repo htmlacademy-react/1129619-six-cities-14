@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, generatePath } from 'react-router-dom';
 import { Offer } from '../../types/offers';
 import { AppRoute } from '../../const';
 
@@ -15,7 +15,7 @@ function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
     onCardHover?.(null);
   }
 
-  // console.log(idCard);
+  const offerUrl = generatePath(AppRoute.Offer, { id: offer.id.toString() });
 
   return (
     <article
@@ -30,8 +30,7 @@ function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
       )}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        {/* ниже должен быть id /id */}
-        <Link to={`${AppRoute.Offer}`}>
+        <Link to={offerUrl}>
           <img
             className="place-card__image"
             src={offer.previewImage}

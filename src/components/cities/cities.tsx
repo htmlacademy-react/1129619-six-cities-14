@@ -9,7 +9,6 @@ type CitiesProps = {
 
 export function Cities({ offers }: CitiesProps): JSX.Element {
   const [hoverOfferId, setHoverOfferId] = useState<Offer['id'] | null>(null);
-  console.log(offers);
 
   function handleCardHover(offerId: Offer['id'] | null) {
     setHoverOfferId(offerId);
