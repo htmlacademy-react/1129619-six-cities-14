@@ -2,6 +2,7 @@ import OfferCard from '../offer-card/offer-card';
 import { Offer } from '../../types/offers';
 import { addPluralEnding } from '../../utils/common';
 import { useState } from 'react';
+import { Map } from '../map/map';
 
 type CitiesProps = {
   offers: Offer[];
@@ -61,6 +62,7 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
         </section>
         <div className="cities__right-section">
           <section className="cities__map map"></section>
+          <Map offers={offers} />
         </div>
       </div>
     </div>
