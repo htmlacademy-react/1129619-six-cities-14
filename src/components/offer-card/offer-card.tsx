@@ -1,12 +1,28 @@
+import { Link, generatePath } from 'react-router-dom';
 import { Offer } from '../../types/offers';
+import { AppRoute } from '../../const';
 
 type OfferCardProps = {
   offer: Offer;
+  onCardHover?: (offerId: Offer['id'] | null) => void;
 };
 
-function OfferCard({ offer }: OfferCardProps): JSX.Element {
+function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
+  function handleMouseEnter() {
+    onCardHover?.(offer.id);
+  }
+  function handleMouseLeave() {
+    onCardHover?.(null);
+  }
+
+  const offerUrl = generatePath(AppRoute.Offer, { id: offer.id.toString() });
+
   return (
-    <article className="cities__card place-card">
+    <article
+      className="cities__card place-card"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       {offer.isPremium && (
         <div className="place-card__mark">
           <span>Premium</span>
@@ -14,15 +30,15 @@ function OfferCard({ offer }: OfferCardProps): JSX.Element {
       )}
 
       <div className="cities__image-wrapper place-card__image-wrapper">
-        <a href="#">
+        <Link to={offerUrl}>
           <img
             className="place-card__image"
             src={offer.previewImage}
             width="260"
             height="200"
-            alt="Place image"
+            alt={offer.title}
           />
-        </a>
+        </Link>
       </div>
       <div className="place-card__info">
         <div className="place-card__price-wrapper">

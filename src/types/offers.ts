@@ -9,7 +9,7 @@ type OfferCity = {
   location: OfferLocation;
 };
 
-type OfferHost = {
+export type Host = {
   id: number;
   name: string;
   isPro: boolean;
@@ -29,7 +29,7 @@ export type Offer = {
   maxAdults: number;
   price: number;
   goods: string[];
-  host: OfferHost;
+  host: Host;
   description: string;
   location: OfferLocation;
   id: number;
