@@ -3,10 +3,10 @@ import { Offer } from '../types/offers';
 const offers: Offer[] = [
   {
     city: {
-      name: 'Dusseldorf',
+      name: 'Amsterdam',
       location: {
-        latitude: 51.225402,
-        longitude: 6.776314,
+        latitude: 52.37454,
+        longitude: 4.897976,
         zoom: 13,
       },
     },
@@ -45,8 +45,8 @@ const offers: Offer[] = [
     description:
       'A new spacious villa, one floor. All commodities, jacuzzi and beautiful scenery. Ideal for families or friends.',
     location: {
-      latitude: 51.237402,
-      longitude: 6.779314,
+      latitude: 52.3909553943508,
+      longitude: 4.85309666406198,
       zoom: 16,
     },
     id: 1,
@@ -94,15 +94,15 @@ const offers: Offer[] = [
     },
     description: 'This is a place for dreamers to reset, s the sun sets.',
     location: {
-      latitude: 52.385540000000006,
-      longitude: 4.902976,
+      latitude: 52.3609553943508,
+      longitude: 4.85309666406198,
       zoom: 16,
     },
     id: 2,
   },
   {
     city: {
-      name: 'Brussels',
+      name: 'Amsterdam',
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
@@ -155,11 +155,72 @@ const offers: Offer[] = [
     description:
       'I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!',
     location: {
-      latitude: 50.852557,
-      longitude: 4.3376969999999995,
+      latitude: 52.3909553943508,
+      longitude: 4.929309666406198,
       zoom: 16,
     },
     id: 3,
+  },
+  {
+    city: {
+      name: 'Amsterdam',
+      location: {
+        latitude: 50.846557,
+        longitude: 4.351697,
+        zoom: 13,
+      },
+    },
+    previewImage: 'https://14.react.pages.academy/static/offer/3.jpg',
+    images: [
+      'https://14.react.pages.academy/static/offer/9.jpg',
+      'https://14.react.pages.academy/static/offer/3.jpg',
+      'https://14.react.pages.academy/static/offer/5.jpg',
+      'https://14.react.pages.academy/static/offer/18.jpg',
+      'https://14.react.pages.academy/static/offer/8.jpg',
+      'https://14.react.pages.academy/static/offer/10.jpg',
+      'https://14.react.pages.academy/static/offer/1.jpg',
+      'https://14.react.pages.academy/static/offer/19.jpg',
+      'https://14.react.pages.academy/static/offer/16.jpg',
+      'https://14.react.pages.academy/static/offer/7.jpg',
+      'https://14.react.pages.academy/static/offer/6.jpg',
+      'https://14.react.pages.academy/static/offer/14.jpg',
+      'https://14.react.pages.academy/static/offer/4.jpg',
+      'https://14.react.pages.academy/static/offer/12.jpg',
+    ],
+    title: 'Loft Studio in the Central Area',
+    isFavorite: true,
+    isPremium: false,
+    rating: 1.2,
+    type: 'room',
+    bedrooms: 1,
+    maxAdults: 2,
+    price: 125,
+    goods: [
+      'Washing machine',
+      'Laptop friendly workspace',
+      'Towels',
+      'Baby seat',
+      'Air conditioning',
+      'Coffee machine',
+      'Fridge',
+      'Breakfast',
+      'Washer',
+      'Dishwasher',
+    ],
+    host: {
+      id: 25,
+      name: 'Angelina',
+      isPro: true,
+      avatarUrl: 'img/avatar-angelina.jpg',
+    },
+    description:
+      'I am happy to welcome you to my apartment in the city center! Three words: location, cosy and chic!',
+    location: {
+      latitude: 52.3809553943508,
+      longitude: 4.939309666406198,
+      zoom: 16,
+    },
+    id: 4,
   },
 ];
 
