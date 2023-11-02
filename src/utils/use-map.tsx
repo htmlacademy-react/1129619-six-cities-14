@@ -1,18 +1,24 @@
-import { useEffect, useState } from 'react';
-import leaflet from 'leaflet';
+import { useEffect, useRef, useState } from 'react';
+import leaflet, { Map } from 'leaflet';
+import { Location } from '../types/offers';
 
-export function useMap(mapRef, city) {
-  const [map, setMap] = useState(null);
+type MapController = {
+  center: Location;
+  mapRef: React.MutableRefObject<null>;
+};
+
+export function useMap({ mapRef, center }: MapController) {
+  const [map, setMap] = useState<Map | null>(null);
   const isRenderRef = useRef(false);
 
   useEffect(() => {
     if (mapRef.current !== null && !isRenderRef.current) {
       const instance = leaflet.map(mapRef.current, {
         center: {
-          lat: city.location.latitude,
-          lng: city.location.longitude,
+          lat: center.latitude,
+          lng: center.longitude,
         },
-        zoom: city.location.zoom,
+        zoom: center.zoom,
       });
       leaflet
         .tileLayer(
@@ -27,6 +33,6 @@ export function useMap(mapRef, city) {
       setMap(instance);
       isRenderRef.current = true;
     }
-  }, [mapRef, city]);
+  }, [mapRef, center]);
   return map;
 }

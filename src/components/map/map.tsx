@@ -1,16 +1,32 @@
 import leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useMap } from '../../utils/use-map';
-import offers from '../../mocks/offers';
-import { OfferCity } from '../../types/offers';
+import { Location, Point } from '../../types/offers';
 
 type MapProps = {
-  offers.city: OfferCity;
-}
+  center: Location;
+  points: Point[];
+};
 
-export function Map({ offers.city }: MapProps): JSX.Element {
+export function Map({ center, points }: MapProps): JSX.Element {
   const mapRef = useRef(null);
-  const map = useMap(mapRef, city);
-  return <div style={{ height: '500px' }} ref={mapRef}></div>;
+  const map = useMap({ mapRef, center });
+  useEffect(() => {
+    if (map) {
+      points.forEach((point) => {
+        if (point !== undefined) {
+          leaflet
+            .marker({
+              lat: point.latitude,
+              lng: point.longitude,
+            })
+            .addTo(map);
+        }
+      });
+    }
+  }, [map, points]);
+  return (
+    <div className="cities__map" style={{ height: '100%' }} ref={mapRef}></div>
+  );
 }

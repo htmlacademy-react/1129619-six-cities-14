@@ -1,5 +1,5 @@
 import OfferCard from '../offer-card/offer-card';
-import { Offer } from '../../types/offers';
+import { Offer, Point } from '../../types/offers';
 import { addPluralEnding } from '../../utils/common';
 import { useState } from 'react';
 import { Map } from '../map/map';
@@ -10,6 +10,11 @@ type CitiesProps = {
 
 export function Cities({ offers }: CitiesProps): JSX.Element {
   const [hoverOfferId, setHoverOfferId] = useState<Offer['id'] | null>(null);
+
+  const points: Point[] = offers.map((offer) => ({
+    latitude: offer.location.latitude,
+    longitude: offer.location.longitude,
+  }));
 
   function handleCardHover(offerId: Offer['id'] | null) {
     setHoverOfferId(offerId);
@@ -61,8 +66,8 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
           </div>
         </section>
         <div className="cities__right-section">
-          <section className="cities__map map"></section>
-          <Map offers={offers} />
+          {/* <section className="cities__map map"></section> */}
+          <Map center={offers[0].city.location} points={points} />
         </div>
       </div>
     </div>
