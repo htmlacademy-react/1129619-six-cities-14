@@ -28,8 +28,6 @@ function OffersScreen({ offers }: OffersScreenProps): JSX.Element {
     }
   });
 
-  console.log(points);
-
   if (!offerSelect) {
     return <div>Оффер не найден</div>;
   }
@@ -86,7 +84,7 @@ function OffersScreen({ offers }: OffersScreenProps): JSX.Element {
                   <span className="visually-hidden">To bookmarks</span>
                 </button>
               </div>
-              <StarRating rating={offerSelect.rating} />
+              <StarRating rating={offerSelect.rating} variant="offer" />
               <ul className="offer__features">
                 <li className="offer__feature offer__feature--entire">
                   {offerSelect.type}

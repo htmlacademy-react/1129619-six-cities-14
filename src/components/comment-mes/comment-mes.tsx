@@ -22,7 +22,7 @@ export function CommentMes({ comment }: CommentMesProps): JSX.Element {
       </div>
       <div className="reviews__info">
         <div className="reviews__rating rating">
-          <StarRating rating={comment.rating} />
+          <StarRating rating={comment.rating} variant="review" />
         </div>
         <p className="reviews__text">{comment.comment}</p>
         <time className="reviews__time" dateTime="2019-04-24">

@@ -12,6 +12,8 @@ type MapProps = {
 export function Map({ center, points }: MapProps): JSX.Element {
   const mapRef = useRef(null);
   const map = useMap({ mapRef, center });
+  console.log(map);
+
   useEffect(() => {
     if (map) {
       points.forEach((point) => {
