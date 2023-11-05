@@ -60,7 +60,7 @@ function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
             <span style={{ width: '80%' }}></span>
             <span className="visually-hidden">Rating</span>
           </div>
-          <StarRating rating={offer.rating} />
+          <StarRating rating={offer.rating} variant="place" />
         </div>
         <h2 className="place-card__name">
           <a href="#">{offer.description}</a>

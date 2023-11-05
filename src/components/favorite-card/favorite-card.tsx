@@ -56,7 +56,7 @@ export function FavoriteCard({ offer }: FavoriteCardProps): JSX.Element {
                 <span className="visually-hidden">In bookmarks</span>
               </button>
             </div>
-            <StarRating rating={offer.rating} />
+            <StarRating rating={offer.rating} variant="favorite" />
             <h2 className="place-card__name">
               <Link to={offerUrl}>{offer.title}</Link>
             </h2>
