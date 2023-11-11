@@ -25,4 +25,13 @@ enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export { Setting, AppRoute, AuthorizationStatus, CitiesEnum };
+enum NameSpace {
+  Offers = 'OFFERS',
+  Offer = 'OFFER',
+  NearPlaces = 'NEAR_PLACES',
+  Favorites = 'FAVORITES',
+  Reviews = 'REVIEWS',
+  User = 'USER',
+}
+
+export { Setting, AppRoute, AuthorizationStatus, CitiesEnum, NameSpace };

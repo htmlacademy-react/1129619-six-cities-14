@@ -7,7 +7,7 @@ const offers: Offer[] = [
       location: {
         latitude: 52.37454,
         longitude: 4.897976,
-        zoom: 13,
+        zoom: 12,
       },
     },
     previewImage: 'https://14.react.pages.academy/static/offer/3.jpg',
@@ -106,7 +106,7 @@ const offers: Offer[] = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13,
+        zoom: 12,
       },
     },
     previewImage: 'https://14.react.pages.academy/static/offer/3.jpg',
@@ -167,7 +167,7 @@ const offers: Offer[] = [
       location: {
         latitude: 50.846557,
         longitude: 4.351697,
-        zoom: 13,
+        zoom: 12,
       },
     },
     previewImage: 'https://14.react.pages.academy/static/offer/3.jpg',

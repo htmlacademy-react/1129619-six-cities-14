@@ -6,15 +6,24 @@ import { Helmet } from 'react-helmet-async';
 import { Offer } from '../../types/offers';
 import { CitiesList } from '../../components/cities-list/cities-list';
 import Logo from '../../components/logo/logo';
+import { useState } from 'react';
+
+import { useAppSelector } from '../../components/map';
 
 type MainScreenProps = {
   offers: Offer[];
 };
 
+// function FavoritePage() {
+//   const favorite = useAppSelector((state) => state.favorites);
+
+// }
+
 function MainScreen({ offers }: MainScreenProps): JSX.Element {
-  // const [activeCard, setactiveCard] = useState(
-  //   offers.map((offer) => offer.isFavorite),
-  // );
+  const [activeCard, setactiveCard] = useState(
+    offers.map((offer) => offer.isFavorite),
+  );
+
   return (
     <div className="page page--gray page--main">
       <Helmet>

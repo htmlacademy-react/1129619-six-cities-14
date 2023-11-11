@@ -54,12 +54,7 @@ function OfferCard({ offer, onCardHover }: OfferCardProps): JSX.Element {
             <span className="visually-hidden">To bookmarks</span>
           </button>
         </div>
-        {/* Пробросить свои классы? */}
         <div className="place-card__rating rating">
-          <div className="place-card__stars rating__stars">
-            <span style={{ width: '80%' }}></span>
-            <span className="visually-hidden">Rating</span>
-          </div>
           <StarRating rating={offer.rating} variant="place" />
         </div>
         <h2 className="place-card__name">
