@@ -7,7 +7,7 @@ import { StarRating } from '../../components/star-rating/star-rating';
 import { OfferInside } from '../../components/offer-inside/offer-inside';
 import { OfferHost } from '../../components/offer-host/offer-host';
 import { OfferReviews } from '../../components/offer-reviews/offer-reviews';
-import comments from '../../mocks/commetns';
+import comments from '../../mocks/comments';
 import OfferCard from '../../components/offer-card/offer-card';
 import { Map } from '../../components/map/map';
 
@@ -19,7 +19,7 @@ function OffersScreen({ offers }: OffersScreenProps): JSX.Element {
   const { id } = useParams();
   const offerSelect = offers.find((item) => item.id === Number(id));
 
-  const points: Point[] = offers.map((offer) => {
+  const points = offers.map((offer) => {
     if (offer.id !== Number(id)) {
       return {
         latitude: offer.location.latitude,

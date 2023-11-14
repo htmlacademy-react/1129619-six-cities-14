@@ -12,6 +12,7 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
   const [hoverOfferId, setHoverOfferId] = useState<Offer['id'] | null>(null);
 
   const points: Point[] = offers.map((offer) => ({
+    id: offer.id,
     latitude: offer.location.latitude,
     longitude: offer.location.longitude,
   }));
@@ -66,8 +67,11 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
           </div>
         </section>
         <div className="cities__right-section">
-          {/* <section className="cities__map map"></section> */}
-          <Map center={offers[0].city.location} points={points} />
+          <Map
+            center={offers[0].city.location}
+            points={points}
+            selectedPoint={hoverOfferId}
+          />
         </div>
       </div>
     </div>

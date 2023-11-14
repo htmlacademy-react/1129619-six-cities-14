@@ -1,3 +1,4 @@
+
 const Setting = {
   OffersCount: 6,
 };
@@ -25,4 +26,23 @@ enum AuthorizationStatus {
   Unknown = 'UNKNOWN',
 }
 
-export { Setting, AppRoute, AuthorizationStatus, CitiesEnum };
+enum SortOption {
+  Popular = 'Popular',
+  PriceFromLowToHigh = 'Price: low to high',
+  priceFromHighLow = 'Price: high to low',
+  Rating = 'Top rated first',
+}
+
+enum defaultPin = leaflet.icon({
+  iconUrl: 'img/pin.svg',
+  iconSize: [27, 39],
+  iconAnchor: [27, 39],
+});
+
+enum activePin = leaflet.icon({
+  iconUrl: 'img/pin-active.svg',
+  iconSize: [27, 39],
+  iconAnchor: [27, 39],
+});
+
+export { Setting, AppRoute, AuthorizationStatus, CitiesEnum, SortOption, defaultPin, activePin};
