@@ -1,21 +1,9 @@
 import { createAction } from '@reduxjs/toolkit';
 
-import { NameSpace } from '../const';
+export const setCity = createAction('setCity');
 
-export const fetchOffers = createAction(`${NameSpace.Offers}/fetchOffers`);
+export const setSortOption = createAction('setSortOption');
 
-export const fetchOffer = createAction(`${NameSpace.Offer}/fetchOffer`);
+export const setActiveOffer = createAction('setActiveOffer');
 
-export const fetchNearPlaces = createAction(
-  `${NameSpace.NearPlaces}/fetchNearPlaces`,
-);
-
-export const fetchReviews = createAction(`${NameSpace.Reviews}/fetchReviews`);
-
-export const dropOffer = createAction(`${NameSpace.Offer}/dropOffer`);
-
-export const setActiveCity = createAction(`${NameSpace.Offers}/setActiveCity`);
-
-export const fetchFavorites = createAction(
-  `${NameSpace.Favorites}/fetchFavorites`,
-);
+export const fetchOffers = createAction('fetchOffers');

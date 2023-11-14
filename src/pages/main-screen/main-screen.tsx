@@ -6,9 +6,10 @@ import { Helmet } from 'react-helmet-async';
 import { Offer } from '../../types/offers';
 import { CitiesList } from '../../components/cities-list/cities-list';
 import Logo from '../../components/logo/logo';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { fetchOffers } from '../../store/action';
 
-import { useAppSelector } from '../../components/map';
 
 type MainScreenProps = {
   offers: Offer[];
@@ -19,10 +20,27 @@ type MainScreenProps = {
 
 // }
 
-function MainScreen({ offers }: MainScreenProps): JSX.Element {
-  const [activeCard, setactiveCard] = useState(
-    offers.map((offer) => offer.isFavorite),
+function MainScreen(): JSX.Element {
+  // const [activeCard, setactiveCard] = useState(
+  //   offers.map((offer) => offer.isFavorite),
+  // );
+
+  const activeCity = useAppSelector((state) => state.activeCity);
+  const offers = useAppSelector((state) =>
+    state.offers.filter((offer) => offer.city.name === activeCity),
   );
+  const cityCenter = offers[0]?.city.location;
+  const points = offers.map((offer) => {
+    id: offer.id,
+    latitude: offer.location.latitude,
+    longitude: offer.location.longitude,
+  });
+
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchOffers())
+  } [dispatch])
 
   return (
     <div className="page page--gray page--main">
