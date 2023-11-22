@@ -10,37 +10,24 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { fetchOffers } from '../../store/action';
 
-
-type MainScreenProps = {
-  offers: Offer[];
-};
-
-// function FavoritePage() {
-//   const favorite = useAppSelector((state) => state.favorites);
-
-// }
-
 function MainScreen(): JSX.Element {
-  // const [activeCard, setactiveCard] = useState(
-  //   offers.map((offer) => offer.isFavorite),
-  // );
-
   const activeCity = useAppSelector((state) => state.activeCity);
   const offers = useAppSelector((state) =>
     state.offers.filter((offer) => offer.city.name === activeCity),
   );
+
   const cityCenter = offers[0]?.city.location;
-  const points = offers.map((offer) => {
+  const points = offers.map((offer) => ({
     id: offer.id,
     latitude: offer.location.latitude,
     longitude: offer.location.longitude,
-  });
+  }));
 
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(fetchOffers())
-  } [dispatch])
+    dispatch(fetchOffers());
+  }, [dispatch]);
 
   return (
     <div className="page page--gray page--main">

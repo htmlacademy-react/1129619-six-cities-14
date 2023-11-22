@@ -2,12 +2,21 @@ import { createReducer } from '@reduxjs/toolkit';
 import offers from '../mocks/offers';
 
 import { fetchOffers, setActiveOffer, setSortOption, setCity } from './action';
+import { Offer } from '../types/offers';
+import { CityName, SortOption } from '../const';
 
-const initialState = {
+type AppState = {
+  activeCity: CityName;
+  offers: Offer[];
+  actionOffer: Offer | null;
+  sortOption: SortOption;
+};
+
+const initialState: AppState = {
   activeCity: CityName.Paris,
   offers: [],
   actionOffer: null,
-  sortOption: sortOption.Popular,
+  sortOption: SortOption.Popular,
 };
 
 export const reducer = createReducer(initialState, (builder) => {

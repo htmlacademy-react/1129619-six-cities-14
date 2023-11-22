@@ -15,8 +15,8 @@ export function Map({ center, points }: MapProps): JSX.Element {
   const mapRef = useRef(null);
   const map = useMap({ mapRef, center });
 
-  // не совсем ясна функция getActiveOffer
-  const activeOfferId = useAppSelector(getActiveOffer)?.id;
+  const activeOfferId = useAppSelector((state) => state.actionOffer)?.id;
+  console.log(activeOfferId);
 
   useEffect(() => {
     if (map) {
@@ -27,16 +27,18 @@ export function Map({ center, points }: MapProps): JSX.Element {
       });
 
       points.forEach((point) => {
+        // console.log(hoverOfferId);
+
         leaflet
           .marker({
             lat: point.latitude,
             lng: point.longitude,
           })
-          .setIcon(id === activeOfferId ? activePin : defaultPin)
+          .setIcon(point.id === activeOfferId ? activePin : defaultPin)
           .addTo(map);
       });
     }
-  }, [map, points]);
+  }, [activeOfferId, map, points]);
   return (
     <div className="cities__map" style={{ height: '100%' }} ref={mapRef}></div>
   );
