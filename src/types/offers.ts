@@ -1,3 +1,5 @@
+import { CityName } from '../const';
+
 export type Location = {
   latitude: number;
   longitude: number;
@@ -5,7 +7,7 @@ export type Location = {
 };
 
 export type OfferCity = {
-  name: string;
+  name: CityName;
   location: Location;
 };
 
@@ -35,4 +37,6 @@ export type Offer = {
   id: number;
 };
 
-export type Point = Omit<Location, 'zoom'>;
+export type Point = Omit<Location, 'zoom'> & {
+  id: number;
+};

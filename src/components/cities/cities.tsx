@@ -3,13 +3,16 @@ import { Offer, Point } from '../../types/offers';
 import { addPluralEnding } from '../../utils/common';
 import { useState } from 'react';
 import { Map } from '../map/map';
+import { SortList } from '../sort-list/sort-list';
+import { useAppDispatch } from '../../hooks';
+import { setActiveOffer } from '../../store/action';
 
 type CitiesProps = {
   offers: Offer[];
 };
 
 export function Cities({ offers }: CitiesProps): JSX.Element {
-  const [hoverOfferId, setHoverOfferId] = useState<Offer['id'] | null>(null);
+  const dispatch = useAppDispatch();
 
   const points: Point[] = offers.map((offer) => ({
     id: offer.id,
@@ -17,10 +20,11 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
     longitude: offer.location.longitude,
   }));
 
-  function handleCardHover(offerId: Offer['id'] | null) {
-    setHoverOfferId(offerId);
+  function handleCardHover(offer: Offer | null) {
+    dispatch(setActiveOffer(offer));
+    console.log(offer);
   }
-
+  console.log(offers);
   return (
     <div className="cities">
       <div className="cities__places-container container">
@@ -38,40 +42,26 @@ export function Cities({ offers }: CitiesProps): JSX.Element {
                 <use xlinkHref="#icon-arrow-select"></use>
               </svg>
             </span>
-            <ul className="places__options places__options--custom places__options--opened">
-              {/* <li
-                className="places__option places__option--active"
-                tabIndex={0}
-              >
-                Popular
-              </li>
-              <li className="places__option" tabIndex={0}>
-                Price: low to high
-              </li>
-              <li className="places__option" tabIndex={0}>
-                Price: high to low
-              </li>
-              <li className="places__option" tabIndex={0}>
-                Top rated first
-              </li> */}
-            </ul>
+            <SortList />
           </form>
           <div className="cities__places-list places__list tabs__content">
             {offers.map((offer) => (
               <OfferCard
                 offer={offer}
                 key={offer.id}
-                onCardHover={handleCardHover}
+                onCardHover={() => handleCardHover(offer)}
               />
             ))}
           </div>
         </section>
         <div className="cities__right-section">
-          <Map
-            center={offers[0].city.location}
-            points={points}
-            selectedPoint={hoverOfferId}
-          />
+          {offers.length && (
+            <Map
+              center={offers[0]?.city.location}
+              points={points}
+              // selectedPoint={hoverOfferId}
+            />
+          )}
         </div>
       </div>
     </div>

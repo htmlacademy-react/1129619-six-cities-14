@@ -1,7 +1,10 @@
+import leaflet from 'leaflet';
 
 const Setting = {
   OffersCount: 6,
 };
+
+const TIMEOUT_SHOW_ERROR = 2000;
 
 const CitiesEnum = [
   'Paris',
@@ -33,16 +36,42 @@ enum SortOption {
   Rating = 'Top rated first',
 }
 
-enum defaultPin = leaflet.icon({
+enum CityName {
+  Paris = 'Paris',
+  Cologne = 'Cologne',
+  Brussels = 'Brussels',
+  Amsterdam = 'Amsterdam',
+  Hamburg = 'Hamburg',
+  Dusseldorf = 'Dusseldorf',
+}
+
+const defaultPin = leaflet.icon({
   iconUrl: 'img/pin.svg',
   iconSize: [27, 39],
   iconAnchor: [27, 39],
 });
 
-enum activePin = leaflet.icon({
+const activePin = leaflet.icon({
   iconUrl: 'img/pin-active.svg',
   iconSize: [27, 39],
   iconAnchor: [27, 39],
 });
 
-export { Setting, AppRoute, AuthorizationStatus, CitiesEnum, SortOption, defaultPin, activePin};
+enum APIRoute {
+  Offers = '/offers',
+  Login = '/login',
+  Logout = '/logout',
+}
+
+export {
+  Setting,
+  AppRoute,
+  AuthorizationStatus,
+  CitiesEnum,
+  SortOption,
+  defaultPin,
+  activePin,
+  CityName,
+  APIRoute,
+  TIMEOUT_SHOW_ERROR,
+};
