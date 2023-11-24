@@ -4,6 +4,8 @@ const Setting = {
   OffersCount: 6,
 };
 
+const TIMEOUT_SHOW_ERROR = 2000;
+
 const CitiesEnum = [
   'Paris',
   'Cologne',
@@ -55,6 +57,12 @@ const activePin = leaflet.icon({
   iconAnchor: [27, 39],
 });
 
+enum APIRoute {
+  Offers = '/offers',
+  Login = '/login',
+  Logout = '/logout',
+}
+
 export {
   Setting,
   AppRoute,
@@ -64,4 +72,6 @@ export {
   defaultPin,
   activePin,
   CityName,
+  APIRoute,
+  TIMEOUT_SHOW_ERROR,
 };

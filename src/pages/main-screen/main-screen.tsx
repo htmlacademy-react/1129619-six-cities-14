@@ -3,7 +3,6 @@ import { LoginOut } from '../../components/login-out/login-out';
 import { AuthorizationStatus } from '../../const';
 import { Cities } from '../../components/cities/cities';
 import { Helmet } from 'react-helmet-async';
-import { Offer } from '../../types/offers';
 import { CitiesList } from '../../components/cities-list/cities-list';
 import Logo from '../../components/logo/logo';
 import { useEffect, useState } from 'react';
